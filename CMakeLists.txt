@@ -15,5 +15,9 @@ add_library(raylib STATIC src/ray.cpp include/ray/ray.hpp)
 target_include_directories(raylib PUBLIC include/ray include/vec3)
 target_compile_features(raylib PUBLIC cxx_std_11)
 
+add_library(spherelib STATIC src/sphere.cpp include/sphere/sphere.hpp)
+target_include_directories(spherelib PUBLIC include/sphere include/ray include/vec3 include/color)
+target_compile_features(spherelib PUBLIC cxx_std_11)
+
 add_executable(raytracer apps/raytracer.cpp)
-target_link_libraries(raytracer PUBLIC vec3lib colorlib raylib)
+target_link_libraries(raytracer PUBLIC vec3lib colorlib raylib spherelib)
